@@ -1,18 +1,15 @@
 /**
  * 
  */
-package com.javamastermind.student.domain;
-
-import javax.validation.constraints.Size;
+package com.javamastermind.student.dto;
 
 /**
  * @author lahiru_w
  */
-public class Student
+public class StudentDto
 {
-    @Size(min = 15, max = 20 , message = "Incorrect length of studentName" )
     private String studentName;
-    
+
     private String age;
 
     private String address;
@@ -58,5 +55,6 @@ public class Student
     {
         this.contactNo = contactNo;
     }
-
+    
+    
 }
