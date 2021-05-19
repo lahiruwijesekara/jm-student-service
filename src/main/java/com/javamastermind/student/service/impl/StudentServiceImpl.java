@@ -3,10 +3,21 @@
  */
 package com.javamastermind.student.service.impl;
 
+import java.util.Objects;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.javamastermind.student.domain.ErrorResponse;
 import com.javamastermind.student.domain.Student;
+import com.javamastermind.student.domain.StudentResponse;
+import com.javamastermind.student.model.StudentModel;
+import com.javamastermind.student.repository.StudentRespository;
 import com.javamastermind.student.service.StudentService;
+import com.javamastermind.student.util.ErrorCodes;
 
 /**
  * @author lahiru_w
@@ -15,11 +26,28 @@ import com.javamastermind.student.service.StudentService;
 public class StudentServiceImpl implements StudentService
 {
 
-    @Override
-    public boolean addData(Student student)
-    {
+    @Autowired
+    StudentRespository studentRespository;
 
-        return false;
+    @Autowired
+    ModelMapper modelMapper;
+
+    @Override
+    public ResponseEntity<Object> addData(Student student)
+    {
+        StudentModel studentModel = studentRespository.save(modelMapper.map(student, StudentModel.class));
+        if (Objects.nonNull(studentModel.getStudentId())) {
+            StudentResponse studentResponse = new StudentResponse();
+            studentResponse.setStudentId(studentModel.getStudentId());
+            studentResponse.setStudentName(studentModel.getStudentName());
+            studentResponse.setStatus("Success");
+            return new ResponseEntity<>(studentResponse, HttpStatus.ACCEPTED);
+        } else {
+            ErrorResponse errorResponse = new ErrorResponse();
+            errorResponse.setErrorCode(ErrorCodes.SAVE_ERROR);
+            errorResponse.setErrorDescription(ErrorCodes.SAVE_ERROR_MSG);
+            return new ResponseEntity<>(errorResponse, HttpStatus.ACCEPTED);
+        }
     }
 
 }

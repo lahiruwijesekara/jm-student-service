@@ -1,19 +1,20 @@
 /**
  * 
  */
-package com.javamastermind.student.domain;
+package com.javamastermind.student.model;
 
-import javax.validation.constraints.Size;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @author lahiru_w
  */
-public class Student
+@Document(collection = "Student")
+public class StudentModel
 {
-
+    @Id
     private String studentId;
 
-    @Size(min = 15, max = 20, message = "Incorrect length of studentName")
     private String studentName;
 
     private String age;

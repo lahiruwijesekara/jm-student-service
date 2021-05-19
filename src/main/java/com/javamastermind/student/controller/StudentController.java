@@ -5,7 +5,6 @@ package com.javamastermind.student.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -36,8 +35,7 @@ public class StudentController
     public ResponseEntity<Object> addStudentdata(@Validated @RequestBody StudentDto studentDto)
     {
         Student student = modelMapper.map(studentDto, Student.class);
-        studentService.addData(student);
+        return studentService.addData(student);
 
-        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

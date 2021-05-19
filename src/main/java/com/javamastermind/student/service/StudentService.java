@@ -3,6 +3,8 @@
  */
 package com.javamastermind.student.service;
 
+import org.springframework.http.ResponseEntity;
+
 import com.javamastermind.student.domain.Student;
 
 /**
@@ -10,5 +12,5 @@ import com.javamastermind.student.domain.Student;
  */
 public interface StudentService
 {
-    public boolean addData(Student student);
+    public ResponseEntity<Object> addData(Student student);
 }
