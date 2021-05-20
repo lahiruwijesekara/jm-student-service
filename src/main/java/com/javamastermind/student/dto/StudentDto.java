@@ -8,6 +8,8 @@ package com.javamastermind.student.dto;
  */
 public class StudentDto
 {
+    private String studentId;
+
     private String studentName;
 
     private String age;
@@ -55,6 +57,15 @@ public class StudentDto
     {
         this.contactNo = contactNo;
     }
-    
-    
+
+    public String getStudentId()
+    {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId)
+    {
+        this.studentId = studentId;
+    }
+
 }

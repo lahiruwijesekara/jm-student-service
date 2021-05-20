@@ -3,9 +3,13 @@ package com.javamastermind.student;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
+import com.javamastermind.student.util.ErrorCodes;
+
 @SpringBootApplication
+@EnableConfigurationProperties(ErrorCodes.class)
 public class JmStudentServiceApplication
 {
 
@@ -15,9 +19,9 @@ public class JmStudentServiceApplication
     }
 
     @Bean
-    public ModelMapper modelMapper() {
+    public ModelMapper modelMapper()
+    {
         return new ModelMapper();
     }
-
 
 }

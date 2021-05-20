@@ -32,6 +32,9 @@ public class StudentServiceImpl implements StudentService
     @Autowired
     ModelMapper modelMapper;
 
+    @Autowired
+    ErrorCodes errorCodes;
+
     @Override
     public ResponseEntity<Object> addData(Student student)
     {
@@ -44,8 +47,8 @@ public class StudentServiceImpl implements StudentService
             return new ResponseEntity<>(studentResponse, HttpStatus.ACCEPTED);
         } else {
             ErrorResponse errorResponse = new ErrorResponse();
-            errorResponse.setErrorCode(ErrorCodes.SAVE_ERROR);
-            errorResponse.setErrorDescription(ErrorCodes.SAVE_ERROR_MSG);
+            errorResponse.setErrorCode(errorCodes.getSaveErrorCode());
+            errorResponse.setErrorDescription(errorCodes.getSaveErrorMsg());
             return new ResponseEntity<>(errorResponse, HttpStatus.ACCEPTED);
         }
     }

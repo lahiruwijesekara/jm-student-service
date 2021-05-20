@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "errorCodes.save-error-code",
+    "type": "java.lang.String",
+    "description": "A description for 'errorCodes.save-error-code'"
+  },
+  {
+    "name": "errorCodes.save-error-code",
+    "type": "java.lang.String",
+    "description": "A description for 'errorCodes.save-error-code'"
+  },
+  {
+    "name": "errorCodes.save-error-code",
+    "type": "java.lang.String",
+    "description": "A description for 'errorCodes.save-error-code'"
+  }
+]}
