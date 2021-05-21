@@ -38,6 +38,9 @@ public class StudentServiceImpl implements StudentService
     @Override
     public ResponseEntity<Object> addData(Student student)
     {
+       if(studentRespository.existsById(student.getStudentId())) {
+           
+       }
         StudentModel studentModel = studentRespository.save(modelMapper.map(student, StudentModel.class));
         if (Objects.nonNull(studentModel.getStudentId())) {
             StudentResponse studentResponse = new StudentResponse();

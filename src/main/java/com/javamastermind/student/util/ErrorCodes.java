@@ -15,7 +15,13 @@ public class ErrorCodes
 {
     private String saveErrorCode;
 
+    private String msgConErrCode;
+
     private String saveErrorMsg;
+
+    private String msgConErrMsg;
+
+    private String invalidData;
 
     public String getSaveErrorCode()
     {
@@ -35,6 +41,36 @@ public class ErrorCodes
     public void setSaveErrorMsg(String saveErrorMsg)
     {
         this.saveErrorMsg = saveErrorMsg;
+    }
+
+    public String getInvalidData()
+    {
+        return invalidData;
+    }
+
+    public void setInvalidData(String invalidData)
+    {
+        this.invalidData = invalidData;
+    }
+
+    public String getMsgConErrCode()
+    {
+        return msgConErrCode;
+    }
+
+    public void setMsgConErrCode(String msgConErrCode)
+    {
+        this.msgConErrCode = msgConErrCode;
+    }
+
+    public String getMsgConErrMsg()
+    {
+        return msgConErrMsg;
+    }
+
+    public void setMsgConErrMsg(String msgConErrMsg)
+    {
+        this.msgConErrMsg = msgConErrMsg;
     }
 
 }
